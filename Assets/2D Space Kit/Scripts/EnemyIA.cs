@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
+    private Transform player;
+
     public float speed;
     public float findTargetRange;
+    public float acceleration_amount;
+    public float shipRotationSpeed = 3f;
 
-    public float shootRange;
-    private Transform player;
 
     private Vector3 startPosition;
     private Vector3 newPosition;
+    
 
     void Start()
     {
@@ -24,16 +27,41 @@ public class EnemyIA : MonoBehaviour
     void Update()
     {
         Move();
+    }
 
-        if(Vector3.Distance(transform.position, newPosition) < 1f)
+   
+
+    void Move()
+    {
+        if(Vector2.Distance(player.position, transform.position) < findTargetRange )
         {
-            newPosition = GetRoamingPosition();
+            GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
+
+            Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
+            float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        else
+        {
+            Vector3 curretPosition = transform.position;
+            Vector3 direction = new Vector3(newPosition.x - curretPosition.x, newPosition.y - curretPosition.y, newPosition.z - curretPosition.z);
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.LerpAngle(transform.rotation.eulerAngles.z, (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f, shipRotationSpeed * Time.deltaTime)));
+
+            if (Vector3.Distance(transform.position, newPosition) < 1f)
+            {
+                newPosition = GetRoamingPosition();
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
+
+            GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration_amount * Time.deltaTime);
+
+            
         }
     }
 
     private Vector3 GetRoamingPosition()
     {
-        return startPosition + GetRandomDir() * Random.Range(10f, 70f);
+        return startPosition + GetRandomDir() * Random.Range(10f, 10f);
     }
 
     //Utils Funcitons
@@ -42,18 +70,9 @@ public class EnemyIA : MonoBehaviour
         return new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
     }
 
-    void Move()
-    {
-        if(Vector2.Distance(player.position, transform.position) < findTargetRange && Vector2.Distance(player.position, transform.position) > shootRange )
-        { 
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed*Time.deltaTime);        
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, findTargetRange);
-        Gizmos.DrawWireSphere(transform.position, shootRange);
     }
 }

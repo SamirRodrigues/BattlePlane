@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 			GetComponent<Rigidbody2D>().AddForce((transform.right) * acceleration_amount * 0.6f * Time.deltaTime);
 		}
 
-		if (Input.GetKey(KeyCode.C)) {
+		if (Input.GetKey(KeyCode.Space)) {
 			GetComponent<Rigidbody2D>().angularVelocity = Mathf.Lerp(GetComponent<Rigidbody2D>().angularVelocity, 0, rotation_speed * 0.06f * Time.deltaTime);
 			GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
 		}	

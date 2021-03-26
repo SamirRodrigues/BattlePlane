@@ -5,10 +5,9 @@ using System.Collections;
 [System.Serializable]
 public class CustomPointer : MonoBehaviour {
 	
-	public Texture pointerTexture; //The image for the pointer, generally a crosshair or dot.	
-	public bool use_mouse_input = false; //Pointer will be controlled by the mouse.	
-	public float mouse_sensitivity_modifier = 15f; //Speed multiplier for the mouse.	
-	public static Vector2 pointerPosition; //Position of the pointer in screen coordinates.
+	public Texture pointerTexture;					//The image for the pointer, generally a crosshair or dot.	
+	public float mouse_sensitivity_modifier = 15f;	//Speed multiplier for the mouse.	
+	public static Vector2 pointerPosition;			//Position of the pointer in screen coordinates.
 	
 	
 	// Use this for initialization	
@@ -19,13 +18,8 @@ public class CustomPointer : MonoBehaviour {
 	
 	void Start () 
 	{
-		Cursor.lockState = CursorLockMode.Confined;
-		Cursor.visible = false;		
-	
-		if (!use_mouse_input)
-        {
-			Debug.LogError("(FlightControls) No input method selected! See the Custom Pointer script on the Main Camera and select either mouse or gamepad.");
-        }
+		Cursor.lockState = CursorLockMode.Confined; //	Lock the cursor inside the screen
+		Cursor.visible = false;						//	Made the cursor invisible
 	}
 	
 	// Update is called once per frame
@@ -34,15 +28,14 @@ public class CustomPointer : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 
-		if (use_mouse_input) 
-		{		
-			float x_axis = Input.GetAxis("Mouse X");
-			float y_axis = Input.GetAxis("Mouse Y");
+				
+		float x_axis = Input.GetAxis("Mouse X");
+		float y_axis = Input.GetAxis("Mouse Y");
 		
-			//Add the input to the pointer's position
-			pointerPosition += new Vector2(x_axis * mouse_sensitivity_modifier,
-			                               y_axis * mouse_sensitivity_modifier);
-		}
+		//Add the input to the pointer's position
+		pointerPosition += new Vector2(x_axis * mouse_sensitivity_modifier,
+			                            y_axis * mouse_sensitivity_modifier);
+		
 		
 		//Keep the pointer within the bounds of the screen.
 		pointerPosition.x = Mathf.Clamp (pointerPosition.x, 0, Screen.width);

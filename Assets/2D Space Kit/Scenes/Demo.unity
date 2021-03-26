@@ -6842,6 +6842,11 @@ Transform:
   m_Father: {fileID: 361402861}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &56679061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1804822635539258855, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+  m_PrefabInstance: {fileID: 1457681641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &57653647
 GameObject:
   m_ObjectHideFlags: 0
@@ -8569,6 +8574,11 @@ Transform:
   m_Father: {fileID: 621515421}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &152558932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7391121774642519751, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+  m_PrefabInstance: {fileID: 1457681641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &154169866
 GameObject:
   m_ObjectHideFlags: 0
@@ -20710,6 +20720,11 @@ Transform:
   m_Father: {fileID: 1508467648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &567499518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7524693833914174275, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+  m_PrefabInstance: {fileID: 1457681641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &570098504
 GameObject:
   m_ObjectHideFlags: 0
@@ -33321,6 +33336,11 @@ Transform:
   m_Father: {fileID: 1036288929}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019559716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 966823644191457202, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+  m_PrefabInstance: {fileID: 1457681641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1019675102
 GameObject:
   m_ObjectHideFlags: 0
@@ -35497,7 +35517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Controls: \n\tW/A/S/D for acceleration + rotation\n\tC to slow down\n\tHold
+  m_Text: "Controls: \n\tW/A/S/D for acceleration + rotation\n\tSpace to slow down\n\tHold
     LEFT SHIFT and use A/D to strafe\n\tLMB to shoot\n\tH to return to spawn\n\tESC
     to unlock cursor"
 --- !u!222 &1075073842
@@ -46678,11 +46698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.15
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.07
+      value: -18.81
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46720,6 +46740,90 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Cruiser
       objectReference: {fileID: 0}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootSpeed
+      value: 355
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 567499518}
+    - target: {fileID: 821452230876291711, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1019559716}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootSpeed
+      value: 355
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 152558932}
+    - target: {fileID: 821452231143369039, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 56679061}
+    - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: offset
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: findTargetRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: acceleration_amount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518812617532332450, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518812617532332450, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: shootSpeed
+      value: 355
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518812617532332450, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
+    - target: {fileID: 8518812617532332450, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518812617532332450, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: barrelHardpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1668233036}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d40d338456889544b2922dc75f89add, type: 3}
 --- !u!1 &1459180174
@@ -48951,7 +49055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerTexture: {fileID: 2800000, guid: 5960056f1a158354c9d34267efa08f77, type: 3}
-  use_mouse_input: 1
   mouse_sensitivity_modifier: 15
 --- !u!1 &1549622352
 GameObject:
@@ -52297,6 +52400,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1668233036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7800207141486763804, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+  m_PrefabInstance: {fileID: 1457681641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673347140
 GameObject:
   m_ObjectHideFlags: 0
