@@ -7,6 +7,9 @@ TagManager:
   - Projectile
   - Gun
   - GlobalLimit
+  - Enemy
+  - Obstacle
+  - Utility
   layers:
   - Default
   - TransparentFX

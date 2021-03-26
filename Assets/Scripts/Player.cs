@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	public float health = 100f;
+	[SerializeField]
+	private GameObject destroyEffect;
+
+
 	public float maxVelocity = 3;
 	public float acceleration_amount = 1f;
 	public float rotation_speed = 1f;
 	public GameObject turret;
 	public float turret_rotation_speed = 3f;
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -79,5 +79,26 @@ public class Player : MonoBehaviour
 			transform.position = new Vector3(0,0,0);
 		}	
 	}
+
+	public void Damage(float value)
+    {
+		Debug.Log("Hitted");
+		health -= value;
+		if(health <= 0)
+        {
+			Instantiate(destroyEffect, transform.position, Quaternion.identity);
+			Destroy(this.gameObject);
+        }
+    }
+	
+	public void Heal(float value)
+    {
+		Debug.Log("Healed");
+		health += value;
+		if(health >= 100)
+        {
+			health = 100;
+        }
+    }
     
 }

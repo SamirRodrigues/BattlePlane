@@ -62,7 +62,5 @@ public class FlashImage : MonoBehaviour
 
         image.color = new Color32(0, 0, 0, 0); // Using color32 to make sure then catch alpha
         endFlash = true;
-
-
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpaceBoundary : MonoBehaviour
 {
     public bool leftTheSafeSpace = false;
-    [SerializeField]
     public FlashImage alertFlash;
 
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class SpaceBoundary : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
             leftTheSafeSpace = true;
         }
@@ -35,7 +34,7 @@ public class SpaceBoundary : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             leftTheSafeSpace = false;
             StartCoroutine(Cooldown(0.5f));
