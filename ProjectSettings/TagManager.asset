@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Obstacle
   - Utility
+  - DialogueManager
   layers:
   - Default
   - TransparentFX

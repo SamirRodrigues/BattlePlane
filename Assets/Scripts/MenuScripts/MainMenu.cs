@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{    
+{
+    private GameManager gManager;
+
+    private void Start()
+    {
+        gManager = GameObject.FindObjectOfType<GameManager>();
+    }
 
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gManager.ChangeScene("Game");
     }
 
     public void Quit()

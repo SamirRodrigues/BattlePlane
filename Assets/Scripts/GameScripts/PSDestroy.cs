@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PSDestroy : MonoBehaviour {
 
-	// Use this for initialization
+	// Particle System Destroy
 	void Start () {
 		Destroy(gameObject, GetComponent<ParticleSystem>().main.duration);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

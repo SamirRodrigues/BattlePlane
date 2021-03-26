@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
 	public GameObject firingShip;
 	
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		GameObject obj = (GameObject) Instantiate(shootEffect, transform.position  - new Vector3(0,0,5), Quaternion.identity); //Spawn muzzle flash
 		obj.transform.parent = firingShip.transform;
 		Destroy(this.gameObject, 5f); //Bullet will despawn after 5 seconds
@@ -22,6 +22,10 @@ public class Projectile : MonoBehaviour {
             {
 				col.GetComponent<Player>().Damage(10);
             }
+			else if(col.CompareTag("Enemy"))
+            {
+				col.GetComponent<EnemyIA>().Damage(10);
+			}
 			Instantiate(hitEffect, transform.position, Quaternion.identity);
 			Destroy(this.gameObject);
 		}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 821452230254765723}
   - component: {fileID: 3013440265693633657}
   m_Layer: 6
-  m_Name: Cruiser 1 1
+  m_Name: Enemy Cruiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,9 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7902cb46a06856946b985b3ac0bf90cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 350
+  destroyEffect: {fileID: 100002, guid: 2543e000e481cca4c9a427fdeacc4da4, type: 3}
   speed: 1
   findTargetRange: 10
-  shootRange: 5
+  acceleration_amount: 50
+  shipRotationSpeed: 3
+  moveRange: 10
 --- !u!1 &821452231473712741
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,12 +309,10 @@ MonoBehaviour:
   player: {fileID: 0}
   cooldown: 1
   shootRange: 5
-  weapon_prefab: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
-  barrel_hardpoints:
-  - {fileID: 7391121774642519751}
-  - {fileID: 1804822635539258855}
-  turret_rotation_speed: 3
-  shot_speed: 355
+  weaponPrefab: {fileID: 0}
+  barrelHardpoints: []
+  turretRotationSpeed: 3
+  shootSpeed: 0
 --- !u!1 &821452231822811594
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,11 +412,10 @@ MonoBehaviour:
   player: {fileID: 0}
   cooldown: 1
   shootRange: 5
-  weapon_prefab: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
-  barrel_hardpoints:
-  - {fileID: 7800207141486763804}
-  turret_rotation_speed: 3
-  shot_speed: 355
+  weaponPrefab: {fileID: 0}
+  barrelHardpoints: []
+  turretRotationSpeed: 3
+  shootSpeed: 0
 --- !u!1 &821452231842811970
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,12 +516,10 @@ MonoBehaviour:
   player: {fileID: 0}
   cooldown: 1
   shootRange: 5
-  weapon_prefab: {fileID: 100000, guid: bfe0ba4acc768a5448d46a6c63d8106a, type: 3}
-  barrel_hardpoints:
-  - {fileID: 7524693833914174275}
-  - {fileID: 966823644191457202}
-  turret_rotation_speed: 3
-  shot_speed: 355
+  weaponPrefab: {fileID: 0}
+  barrelHardpoints: []
+  turretRotationSpeed: 3
+  shootSpeed: 0
 --- !u!1 &966823644191457202
 GameObject:
   m_ObjectHideFlags: 0

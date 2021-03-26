@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
+    private GameManager gameManager;
+
+    public float health = 100f;
+    [SerializeField]
+    private GameObject destroyEffect;
+
+
     private Transform player;
 
     public float speed = 10f;
@@ -22,6 +29,7 @@ public class EnemyIA : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         startPosition = transform.position;
         newPosition = GetRoamingPosition();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -62,6 +70,17 @@ public class EnemyIA : MonoBehaviour
             }
         }
         
+    }
+
+    public void Damage(float value)
+    {
+        health -= value;
+        if (health <= 0)
+        {
+            gameManager.EnemyDefeated();
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     //Utils Funcitons

@@ -15,12 +15,17 @@ public class Player : MonoBehaviour
 	public GameObject turret;
 	public float turret_rotation_speed = 3f;
 
+	private bool isLocked = false;
+
 
     // Update is called once per frame
     void Update()
 	{
-		
-		Moviment();
+	
+		if(!isLocked)
+        {
+			Moviment();
+        }
 
 	}
 
@@ -82,7 +87,6 @@ public class Player : MonoBehaviour
 
 	public void Damage(float value)
     {
-		Debug.Log("Hitted");
 		health -= value;
 		if(health <= 0)
         {
@@ -93,12 +97,21 @@ public class Player : MonoBehaviour
 	
 	public void Heal(float value)
     {
-		Debug.Log("Healed");
 		health += value;
 		if(health >= 100)
         {
 			health = 100;
         }
+    }
+
+	public void SetLock(bool value)
+    {
+		isLocked = value;
+    }
+	
+	public bool GetLock()
+    {
+		return isLocked;
     }
     
 }
