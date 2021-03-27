@@ -70,6 +70,7 @@ public class EnemyIA : MonoBehaviour
             if (Vector2.Distance(player.position, transform.position) < findTargetRange)
             {
                 state = State.ATTACKING;
+                Debug.Log(state);
             }
             else
             {
@@ -93,11 +94,22 @@ public class EnemyIA : MonoBehaviour
 
     void AttackMode()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
+        if(player != null)
+        {
+            if (Vector2.Distance(player.position, transform.position) > findTargetRange)
+            {
+                state = State.ROAMING;
+                Debug.Log(state);
+            }
 
-        Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
-        float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
+
+            Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
+            float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        }
+        
     }
 
     public void Damage(float value)
