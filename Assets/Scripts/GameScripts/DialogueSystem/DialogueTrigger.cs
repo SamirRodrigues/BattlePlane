@@ -9,8 +9,6 @@ public class DialogueTrigger : MonoBehaviour
 
     private Player player;
 
-    private bool isStarted = false;
-
     public void TriggerDialogue()
     {
         manager = FindObjectOfType<DialogueManager>();
@@ -18,7 +16,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             manager.StartDialogue(dialogue);
         }
-
     }
 
     private void Start()
@@ -29,12 +26,7 @@ public class DialogueTrigger : MonoBehaviour
     
 
     private void Update()
-    {
-        if(!isStarted)
-        {
-            GetComponent<DialogueTrigger>().TriggerDialogue();
-            isStarted = true;
-        }
+    {        
 
         if (manager != null)
         {

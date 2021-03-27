@@ -14137,7 +14137,6 @@ GameObject:
   - component: {fileID: 371114138}
   - component: {fileID: 371114137}
   - component: {fileID: 371114140}
-  - component: {fileID: 371114141}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -14243,26 +14242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 919569028}
   pointer: {fileID: 1545395175}
---- !u!114 &371114141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371114135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa50fa5a2c35c3947884a9da0416d602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    avatar: {fileID: 21300000, guid: a39f5d360eb38284fb54a62672b5ec9f, type: 3}
-    name: General Kenoby
-    sentences:
-    - Hello There, you need survive!
-    - Your Misson is Destroy all enemies around you! Find Them to be Safe!
-    - May the Force be with you!
-  manager: {fileID: 840235932}
 --- !u!1 &377517189
 GameObject:
   m_ObjectHideFlags: 0
@@ -23609,7 +23588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23629,15 +23608,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 551127817210226062, guid: 5d591516a80940c44a887f9a53df2a41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28531,7 +28510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840348924
 GameObject:
@@ -38137,6 +38116,74 @@ Transform:
   m_Father: {fileID: 671737038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1126937243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126937245}
+  - component: {fileID: 1126937244}
+  - component: {fileID: 1126937246}
+  m_Layer: 0
+  m_Name: StartDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1126937244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126937243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d218bdad9a0d34b99a0f63c567efa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 1126937246}
+  manager: {fileID: 840235932}
+--- !u!4 &1126937245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126937243}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126937246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126937243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa50fa5a2c35c3947884a9da0416d602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    avatar: {fileID: 21300000, guid: a39f5d360eb38284fb54a62672b5ec9f, type: 3}
+    name: General Kenoby
+    sentences:
+    - Hello There, you need survive!
+    - 'Your Misson is Destroy all enemies around you! '
+    - To find the enemy, divide your vision into quadrants! It will be circling in
+      the Fourth Quadrant
+    - May the Force be with you!
+  manager: {fileID: 840235932}
 --- !u!1 &1128808176
 GameObject:
   m_ObjectHideFlags: 0
@@ -48175,11 +48222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.02
+      value: 9.38
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.68
+      value: -15.42
       objectReference: {fileID: 0}
     - target: {fileID: 821452230254765720, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52914,6 +52961,7 @@ GameObject:
   - component: {fileID: 1615676103}
   - component: {fileID: 1615676106}
   - component: {fileID: 1615676107}
+  - component: {fileID: 1615676108}
   m_Layer: 6
   m_Name: Station 1
   m_TagString: Utility
@@ -52929,7 +52977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615676101}
   m_LocalRotation: {x: 0, y: 0, z: 0.5659106, w: 0.82446665}
-  m_LocalPosition: {x: 17.659172, y: -6.98, z: 0}
+  m_LocalPosition: {x: 13.77, y: -6.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1949663011}
@@ -53097,6 +53145,27 @@ MonoBehaviour:
   leftTheSafeSpace: 0
   alertFlash: {fileID: 1551690410}
   destroyEffect: {fileID: 100002, guid: a749eca314457ef44a16d6ff52078efd, type: 3}
+  dTrigger: {fileID: 0}
+--- !u!114 &1615676108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615676101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa50fa5a2c35c3947884a9da0416d602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    avatar: {fileID: 21300000, guid: 4af45e89e7061e7409f6aafe3149425b, type: 3}
+    name: R2D2
+    sentences:
+    - When you need healing, seek me out, I will sacrifice myself to give you 50
+      life points
+    - Press B to get the Resource
+  manager: {fileID: 840235932}
 --- !u!1 &1619310211
 GameObject:
   m_ObjectHideFlags: 0

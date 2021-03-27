@@ -22,7 +22,19 @@ public class EnemyIA : MonoBehaviour
 
     private Vector3 startPosition;
     private Vector3 newPosition;
-    
+
+    private enum State
+    {
+        ROAMING,
+        ATTACKING,
+    }
+
+    private State state;
+
+    private void Awake()
+    {
+        state = State.ROAMING;
+    }
 
     void Start()
     {
@@ -35,7 +47,18 @@ public class EnemyIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        switch(state)
+        {
+            default:
+            case State.ROAMING:
+                Move();
+                break;
+            case State.ATTACKING:
+                AttackMode();
+                break;
+
+        }
+        
     }
 
    
@@ -46,11 +69,7 @@ public class EnemyIA : MonoBehaviour
         {
             if (Vector2.Distance(player.position, transform.position) < findTargetRange)
             {
-                GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
-
-                Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
-                float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                state = State.ATTACKING;
             }
             else
             {
@@ -70,6 +89,15 @@ public class EnemyIA : MonoBehaviour
             }
         }
         
+    }
+
+    void AttackMode()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
+
+        Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
+        float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     public void Damage(float value)

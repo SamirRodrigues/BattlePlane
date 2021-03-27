@@ -9,11 +9,17 @@ public class SupportStation : MonoBehaviour
     public FlashImage alertFlash;
     public GameObject destroyEffect;
 
+    public DialogueTrigger dTrigger;
+    private bool startDialog = false;
+
     private Player player;
+
+    //Public Dialog
 
     // Start is called before the first frame update
     void Start()
     {
+        dTrigger = GetComponent<DialogueTrigger>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         alertFlash.gameObject.SetActive(false);
     }
@@ -26,12 +32,18 @@ public class SupportStation : MonoBehaviour
             alertFlash.gameObject.SetActive(true);
             alertFlash.StartFlash(1, 0.5f, Color.blue);
 
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKey(KeyCode.B))
             {
                 player.Heal(50f);
                 alertFlash.gameObject.SetActive(false);
                 Instantiate(destroyEffect, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
+            }
+
+            if(Input.GetKey(KeyCode.E) && !startDialog)
+            {
+               startDialog = true;
+               dTrigger.TriggerDialogue();
             }
         }
     }
@@ -40,6 +52,7 @@ public class SupportStation : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            startDialog = false;
             leftTheSafeSpace = false;
             StartCoroutine(Cooldown(0.5f));
         }
@@ -47,8 +60,9 @@ public class SupportStation : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Player"))
-        {
+        {            
             leftTheSafeSpace = true;            
         }
 

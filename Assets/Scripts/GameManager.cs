@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(value);
         if(value == "Game")
         {
+
             ResetConfigs();
         }
         Time.timeScale = 1f;

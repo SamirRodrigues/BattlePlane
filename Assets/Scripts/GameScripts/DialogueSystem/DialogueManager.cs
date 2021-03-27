@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogPlane.SetActive(true);
+
         nameText.text = dialogue.name;
         avatarSprite.sprite = dialogue.avatar;
 
