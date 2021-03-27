@@ -36,6 +36,7 @@ public class SupportStation : MonoBehaviour
             {
                 player.Heal(50f);
                 alertFlash.gameObject.SetActive(false);
+                dTrigger.manager.EndDialogue();
                 Instantiate(destroyEffect, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }

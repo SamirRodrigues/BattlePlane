@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         dialogText.text = sentences.Dequeue();
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         dialogueEnd = true;
         dialogPlane.SetActive(false);
