@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             GameLoop();
         }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            gameOver = false;
+        }
     }    
 
     void GameLoop()
@@ -56,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (player == null)
+            if (player == null && !gameOver && gameStart)
             {
                 gameOver = true;
                 gameStart = false;
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void ResetConfigs()
     {
         gameStart = false;
-        gameOver = false;
+        gameOver = true;
     }
 
     public void GameStart()
@@ -89,16 +94,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void ChangeScene(string value)
-    {
-        Debug.Log(this);
-        Debug.Log(value);
-        if(value == "Game")
-        {
-
-            ResetConfigs();
-        }
+    {        
+        ResetConfigs();
         Time.timeScale = 1f;
-        SceneManager.LoadScene(value);
-        
+        SceneManager.LoadScene(value);        
     }
 }
