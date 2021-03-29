@@ -10,24 +10,28 @@ public class DialogueTrigger : MonoBehaviour
     private Player player;
 
     public void TriggerDialogue()
-    {
-        manager = FindObjectOfType<DialogueManager>();
+    {        
         if (manager != null)
         {
             manager.StartDialogue(dialogue);
+        }
+        else
+        {
+            manager = FindObjectOfType<DialogueManager>();
+            TriggerDialogue();
         }
     }
 
     private void Start()
     {
+        manager = FindObjectOfType<DialogueManager>();
         player = GameObject.FindObjectOfType<Player>();     
     }
 
     
 
     private void Update()
-    {        
-
+    {   
         if (manager != null)
         {
             if(Input.GetKeyDown(KeyCode.E))

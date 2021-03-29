@@ -5,7 +5,6 @@ using UnityEngine;
 public class StartDialog : MonoBehaviour
 {
     public DialogueTrigger trigger;
-    public DialogueManager manager;
     // Start is called before the first frame update
 
     private bool start = false;
@@ -23,7 +22,7 @@ public class StartDialog : MonoBehaviour
             start = true;
             trigger.TriggerDialogue();           
         }
-        else if (manager.IsDialogueEnded())
+        else if (trigger.manager.IsDialogueEnded())
         {
             Destroy(this.gameObject);
         }

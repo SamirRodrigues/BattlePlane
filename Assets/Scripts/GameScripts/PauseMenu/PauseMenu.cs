@@ -38,6 +38,7 @@ public class PauseMenu : MonoBehaviour
         pointer.GetComponent<CustomPointer>().SetAtive(true);
         pauseUI.SetActive(false);
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         isGamePauded = false;
     }
@@ -46,7 +47,8 @@ public class PauseMenu : MonoBehaviour
     {
         pointer.GetComponent<CustomPointer>().SetAtive(false);
         pauseUI.SetActive(true);
-        Cursor.visible = true;
+        Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 0f;
         isGamePauded = true;
     }
