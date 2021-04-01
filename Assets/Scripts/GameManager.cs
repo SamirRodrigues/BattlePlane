@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
                 ChangeScene("GameOver");
             }
 
-            if (enemiesLength == 0)
+            if (enemiesLength <= 0)
             {
                 gameOver = true;
                 gameStart = false;
