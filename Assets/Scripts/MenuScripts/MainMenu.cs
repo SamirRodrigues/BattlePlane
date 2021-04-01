@@ -3,16 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private GameManager gManager;
-
-    private void Start()
-    {
-        gManager = GameObject.FindObjectOfType<GameManager>();
-    }
-
     public void Play()
     {
-        gManager.ChangeScene("Game");
+        GameManager.Instance.ChangeScene("Game");
     }
 
     public void Quit()

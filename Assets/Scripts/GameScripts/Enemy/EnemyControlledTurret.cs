@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyControlledTurret : MonoBehaviour
 {
-	public Transform player;
 	public float cooldown;
 	public float shootRange;
 	private bool endShoot = true;
@@ -15,24 +14,19 @@ public class EnemyControlledTurret : MonoBehaviour
 	private int barrelIndex = 0;
 
 
-	private void Start()
-    {
-		player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     void Update()
 	{
-		if(player != null)
+		if(PlayerManager.Instance != null)
         {
 			//This makes the turret aim at the player
 			Vector3 turretPosition = transform.position;
-			Vector3 direction = new Vector3(player.position.x - turretPosition.x, player.position.y - turretPosition.y, player.position.z - turretPosition.z);
+			Vector3 direction = new Vector3(PlayerManager.Instance.transform.position.x - turretPosition.x, PlayerManager.Instance.transform.position.y - turretPosition.y, PlayerManager.Instance.transform.position.z - turretPosition.z);
 			transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.LerpAngle(transform.rotation.eulerAngles.z, (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f, turretRotationSpeed * Time.deltaTime)));
 
 
 			if (barrelHardpoints != null && endShoot)
 			{
-				if (Vector2.Distance(player.position, transform.position) <= shootRange)
+				if (Vector2.Distance(PlayerManager.Instance.transform.position, transform.position) <= shootRange)
 				{
 					endShoot = false;
 					StartCoroutine(NextShoot(cooldown));

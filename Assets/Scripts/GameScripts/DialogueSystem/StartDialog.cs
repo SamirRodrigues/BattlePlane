@@ -22,7 +22,7 @@ public class StartDialog : MonoBehaviour
             start = true;
             trigger.TriggerDialogue();           
         }
-        else if (trigger.manager.IsDialogueEnded())
+        else if (DialogueManager.Instance.IsDialogueEnded())
         {
             Destroy(this.gameObject);
         }

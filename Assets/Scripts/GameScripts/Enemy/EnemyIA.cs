@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
-    private GameManager gameManager;
-
     public float health = 100f;
     [SerializeField]
     private GameObject destroyEffect;
 
-
-    private Transform player;
 
     public float speed = 10f;
     public float findTargetRange = 7f;
@@ -38,10 +34,8 @@ public class EnemyIA : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         startPosition = transform.position;
         newPosition = GetRoamingPosition();
-        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -65,9 +59,9 @@ public class EnemyIA : MonoBehaviour
 
     void Move()
     {
-        if(player != null)
+        if(PlayerManager.Instance != null)
         {
-            if (Vector2.Distance(player.position, transform.position) < findTargetRange)
+            if (Vector2.Distance(PlayerManager.Instance.transform.position, transform.position) < findTargetRange)
             {
                 state = State.ATTACKING;
                 Debug.Log(state);
@@ -94,9 +88,9 @@ public class EnemyIA : MonoBehaviour
 
     void AttackMode()
     {
-        if(player != null)
+        if(PlayerManager.Instance != null)
         {
-            if (Vector2.Distance(player.position, transform.position) > findTargetRange)
+            if (Vector2.Distance(PlayerManager.Instance.transform.position, transform.position) > findTargetRange)
             {
                 state = State.ROAMING;
                 Debug.Log(state);
@@ -104,7 +98,7 @@ public class EnemyIA : MonoBehaviour
 
             GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
 
-            Vector3 targetPos = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, player.position.z);
+            Vector3 targetPos = new Vector3(PlayerManager.Instance.transform.position.x - transform.position.x, PlayerManager.Instance.transform.position.y - transform.position.y, PlayerManager.Instance.transform.position.z);
             float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
@@ -117,7 +111,7 @@ public class EnemyIA : MonoBehaviour
         health -= value;
         if (health <= 0)
         {
-            gameManager.EnemyDefeated();
+            GameManager.Instance.EnemyDefeated();
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

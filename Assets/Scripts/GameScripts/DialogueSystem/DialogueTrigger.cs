@@ -5,47 +5,36 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public DialogueManager manager;
 
-    private Player player;
 
     public void TriggerDialogue()
-    {        
-        if (manager != null)
-        {
-            manager.StartDialogue(dialogue);
-        }
-        else
-        {
-            manager = FindObjectOfType<DialogueManager>();
-            TriggerDialogue();
-        }
-    }
-
-    private void Start()
     {
-        manager = FindObjectOfType<DialogueManager>();
-        player = GameObject.FindObjectOfType<Player>();     
+        try
+        {
+            DialogueManager.Instance.StartDialogue(dialogue);
+        }
+        catch
+        {
+            Debug.LogError("DialogueManager is Null");
+        }
     }
-
-    
 
     private void Update()
     {   
-        if (manager != null)
+        if (DialogueManager.Instance != null)
         {
             if(Input.GetKeyDown(KeyCode.E))
-            {                
-                manager.DisolayNextSentence();                
+            {
+                DialogueManager.Instance.DisolayNextSentence();                
             }
 
-            if (!manager.IsDialogueEnded())
+            if (!DialogueManager.Instance.IsDialogueEnded())
             {
-                player.SetLock(true);
+                PlayerManager.Instance.SetLock(true);
             }
-            else if (manager.IsDialogueEnded())
+            else if (DialogueManager.Instance.IsDialogueEnded())
             {
-                player.SetLock(false);
+                PlayerManager.Instance.SetLock(false);
             }
         }
     }

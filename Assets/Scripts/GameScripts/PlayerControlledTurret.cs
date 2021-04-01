@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PlayerControlledTurret : MonoBehaviour {
 
-	private Player player;
-
 	public GameObject weaponPrefab;
 	public GameObject[] barrelHardpoints;
 	public float turretRotationSpeed = 3f;
@@ -13,15 +11,10 @@ public class PlayerControlledTurret : MonoBehaviour {
 
 	private bool isAtive = true;
 
-    private void Start()
-    {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-	}
-
     void Update() 
 	{
 		
-		if(isAtive && !player.GetLock())
+		if(isAtive && !PlayerManager.Instance.GetLock())
         {
 			//This makes the turret aim at the mouse position
 			Vector2 turretPosition = Camera.main.WorldToScreenPoint(transform.position);

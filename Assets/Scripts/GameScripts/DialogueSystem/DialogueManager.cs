@@ -12,6 +12,21 @@ public class DialogueManager : MonoBehaviour
 
     private bool dialogueEnd = false;
 
+    public static DialogueManager Instance { get; set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    }
+
 
     private Queue<string> sentences;
 

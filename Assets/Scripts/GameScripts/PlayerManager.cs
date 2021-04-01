@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
 	public float health = 100f;
 	[SerializeField]
@@ -17,6 +17,20 @@ public class Player : MonoBehaviour
 
 	private bool isLocked = false;
 
+	public static PlayerManager Instance { get; set; }
+
+	private void Awake()
+    {
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(this.gameObject);
+			return;
+		}
+	}
 
     // Update is called once per frame
     void Update()
@@ -28,8 +42,6 @@ public class Player : MonoBehaviour
         }
 
 	}
-
-	public static Player Instance { get; private set;  }
 
 	void Moviment()
     {

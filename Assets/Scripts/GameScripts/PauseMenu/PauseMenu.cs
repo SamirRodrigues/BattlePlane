@@ -3,19 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private GameManager gManager;
-
     public static bool isGamePauded = false;
 
     public GameObject pauseUI;
     [SerializeField]
     private GameObject pointer;   
-
-
-    private void Start()
-    {
-        gManager = GameObject.FindObjectOfType<GameManager>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -55,7 +47,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        gManager.ChangeScene("Menu");
+        GameManager.Instance.ChangeScene("Menu");
     }
 
     public void QuitGame()

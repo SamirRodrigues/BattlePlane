@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    private Player player;
+    public static GameManager Instance { get; set; }
+
     private bool gameStart = false;
-    private bool gameOver = false;
-    
+    private bool gameOver = false;    
 
     private GameObject[] enemies;
 
@@ -16,15 +16,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if(Instance == null)
         {
-            Destroy(this.gameObject);
-            return;
+            Instance = this;
+            DontDestroyOnLoad(this);            
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this);
+            Destroy(this.gameObject);
+            return;
         }
     }
     private void Start()
@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 1) //Game Scene
             {
-                player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 enemiesLength = enemies.Length;
                 gameStart = true;
@@ -61,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (player == null && !gameOver && gameStart)
+            if (PlayerManager.Instance == null && !gameOver && gameStart)
             {
                 gameOver = true;
                 gameStart = false;

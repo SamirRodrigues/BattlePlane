@@ -4,19 +4,11 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider fillBar;
-    [SerializeField]
-    private Player player;
-
-    private void Start()
-    {
-        if(!player)
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
 
     public void Update()
     {        
-        fillBar.value = player.health / 100;
-        if(player.health <= 0)
+        fillBar.value = PlayerManager.Instance.health / 100;
+        if(PlayerManager.Instance.health <= 0)
         {
             Destroy(this.gameObject);
         }

@@ -12,7 +12,6 @@ public class SupportStation : MonoBehaviour
     public DialogueTrigger dTrigger;
     private bool startDialog = false;
 
-    private Player player;
 
     //Public Dialog
 
@@ -20,7 +19,6 @@ public class SupportStation : MonoBehaviour
     void Start()
     {
         dTrigger = GetComponent<DialogueTrigger>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         alertFlash.gameObject.SetActive(false);
     }
 
@@ -34,9 +32,9 @@ public class SupportStation : MonoBehaviour
 
             if(Input.GetKey(KeyCode.B))
             {
-                player.Heal(50f);
+                PlayerManager.Instance.Heal(50f);
                 alertFlash.gameObject.SetActive(false);
-                dTrigger.manager.EndDialogue();
+                DialogueManager.Instance.EndDialogue();
                 Instantiate(destroyEffect, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }

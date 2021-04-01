@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour {
 			
 			if(col.CompareTag("Player"))
             {
-				col.GetComponent<Player>().Damage(10);
+				PlayerManager.Instance.Damage(10);
             }
 			else if(col.CompareTag("Enemy"))
             {
