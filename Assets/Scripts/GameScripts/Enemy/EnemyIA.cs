@@ -29,11 +29,12 @@ public class EnemyIA : MonoBehaviour
 
     private void Awake()
     {
-        state = State.ROAMING;
+        state = State.ROAMING;        
     }
 
     void Start()
     {
+        GameManager.Instance.EnemyRegister(this.gameObject);
         startPosition = transform.position;
         newPosition = GetRoamingPosition();
     }
@@ -50,9 +51,7 @@ public class EnemyIA : MonoBehaviour
             case State.ATTACKING:
                 AttackMode();
                 break;
-
-        }
-        
+        }        
     }
 
    
@@ -64,7 +63,6 @@ public class EnemyIA : MonoBehaviour
             if (Vector2.Distance(PlayerManager.Instance.transform.position, transform.position) < findTargetRange)
             {
                 state = State.ATTACKING;
-                Debug.Log(state);
             }
             else
             {
@@ -111,7 +109,7 @@ public class EnemyIA : MonoBehaviour
         health -= value;
         if (health <= 0)
         {
-            GameManager.Instance.EnemyDefeated();
+            GameManager.Instance.EnemyDefeated(this.gameObject);
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

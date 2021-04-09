@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +9,8 @@ public class GameManager : MonoBehaviour
     private bool gameStart = false;
     private bool gameOver = false;    
 
-    private GameObject[] enemies;
+    private List<GameObject> enemies = new List<GameObject>();
 
-    private int enemiesLength;
 
     private void Awake()
     {
@@ -53,8 +51,6 @@ public class GameManager : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 1) //Game Scene
             {
-                enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                enemiesLength = enemies.Length;
                 gameStart = true;
             }
         }
@@ -67,7 +63,7 @@ public class GameManager : MonoBehaviour
                 ChangeScene("GameOver");
             }
 
-            if (enemiesLength <= 0)
+            if (enemies.Count <= 0)
             {
                 gameOver = true;
                 gameStart = false;
@@ -76,9 +72,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EnemyDefeated()
+    public void EnemyDefeated(GameObject enemy)
     {
-        enemiesLength -= 1;
+        enemies.Remove(enemy);
+        // enemiesLength -= 1;
+    }
+
+    public void EnemyRegister(GameObject enemy)
+    {
+        enemies.Add(enemy);
     }
 
     public void ResetConfigs()

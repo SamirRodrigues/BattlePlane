@@ -38160,7 +38160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 1126937246}
-  manager: {fileID: 840235932}
 --- !u!4 &1126937245
 Transform:
   m_ObjectHideFlags: 0
@@ -38200,7 +38199,6 @@ MonoBehaviour:
       in the Fourth Quadrant
     - May the Force be with you!
     - May the Force be with you!
-  manager: {fileID: 840235932}
 --- !u!1 &1128808176
 GameObject:
   m_ObjectHideFlags: 0
@@ -51116,7 +51114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillBar: {fileID: 1820399327}
-  player: {fileID: 2084752107}
 --- !u!1 &1558373896
 GameObject:
   m_ObjectHideFlags: 0
@@ -53184,7 +53181,6 @@ MonoBehaviour:
     - When you need healing, seek me out, I will sacrifice myself to give you 50
       life points
     - Press B to get the Resource
-  manager: {fileID: 840235932}
 --- !u!1 &1619310211
 GameObject:
   m_ObjectHideFlags: 0
