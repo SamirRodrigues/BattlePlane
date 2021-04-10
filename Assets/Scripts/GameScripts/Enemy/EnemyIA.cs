@@ -96,12 +96,12 @@ public class EnemyIA : MonoBehaviour
 
             GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(GetComponent<Rigidbody2D>().velocity, Vector2.zero, acceleration_amount * 0.06f * Time.deltaTime);
 
-            Vector3 targetPos = new Vector3(PlayerManager.Instance.transform.position.x - transform.position.x, PlayerManager.Instance.transform.position.y - transform.position.y, PlayerManager.Instance.transform.position.z);
+            Vector3 targetPos = new Vector3(PlayerManager.Instance.transform.position.x - transform.position.x, 
+                                            PlayerManager.Instance.transform.position.y - transform.position.y, 
+                                            PlayerManager.Instance.transform.position.z);
             float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        }
-        
+        }        
     }
 
     public void Damage(float value)

@@ -23268,7 +23268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648232120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.313, y: 0.171, z: 0}
+  m_LocalPosition: {x: 0.313, y: 0.171, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1923420023}
@@ -38938,7 +38938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151740558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3130003, y: 0.184, z: 0}
+  m_LocalPosition: {x: -0.3130003, y: 0.184, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 204711592}
@@ -48331,6 +48331,10 @@ PrefabInstance:
       propertyPath: barrelHardpoints.Array.data[1]
       value: 
       objectReference: {fileID: 56679061}
+    - target: {fileID: 821452231473712740, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: speed
       value: 10
@@ -48338,6 +48342,10 @@ PrefabInstance:
     - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: offset
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
+      propertyPath: moveRange
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3013440265693633657, guid: 5d40d338456889544b2922dc75f89add, type: 3}
       propertyPath: destroyEffect
